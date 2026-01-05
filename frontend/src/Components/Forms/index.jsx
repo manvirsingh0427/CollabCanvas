@@ -17,7 +17,6 @@ const Forms = ({ uuid, socket, setUser }) => {
       <div className="form-box shadow p-5 border rounded-4 bg-white" style={{ minWidth: "350px" }}>
         <h2 className="text-primary text-center mb-4">Join Room (Viewer) </h2>
         <JoinRoomForm
-          uuid={uuid}
           socket={socket}
           setUser={setUser}
         />

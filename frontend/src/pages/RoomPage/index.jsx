@@ -21,6 +21,7 @@ const RoomPage = ({ user, socket, users, setUsers }) => {
     ctx.fillStyle = "white";
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     setElements([]);
+    setHistory([]);
   };
 
   const undo = () => {
@@ -34,7 +35,7 @@ const RoomPage = ({ user, socket, users, setUsers }) => {
   };
 
   useEffect(() => {
-    const handleUserJoined = ({ name, userId, users: updatedUsers }) => {
+    const handleUserJoined = ({ name, users: updatedUsers }) => {
       setUsers(updatedUsers);
       toast.info(`${name} joined the room`);
     };
@@ -84,7 +85,7 @@ const RoomPage = ({ user, socket, users, setUsers }) => {
           >
             Close
           </button>
-          <div className="w-100 mt-5 pt-5">
+          <div className="w-100 mt-5">
             {users.map((usr) => (
               <p key={usr.userId} className="my-2 text-center w-100">
                 {usr.name} {user?.userId === usr.userId && "(You)"}

@@ -1,14 +1,10 @@
 const express = require("express");
 const app = express();
-
 const server = require("http").createServer(app);
 const { Server } = require("socket.io");
-
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users');
-
 const io = new Server(server);
 
-// routes
 app.get("/", (req, res) => {
   res.send("This is mern realtime board sharing app official server by Manvir Singh");
 });

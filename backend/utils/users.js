@@ -1,7 +1,6 @@
 const users = [];
 
 // Add a user to the list
-
 const addUser = ({ name, userId, roomId, host, presenter, socketId }) => {
   const user = { name, userId, roomId, host, presenter, socketId };
   users.push(user);

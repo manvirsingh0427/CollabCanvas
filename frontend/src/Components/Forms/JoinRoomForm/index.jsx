@@ -28,7 +28,7 @@ const JoinRoomForm = ({ socket, setUser }) => {
       <input
         type="text"
         className="form-control mb-3"
-        placeholder="Your name"
+        placeholder="Enter your name"
         value={name}
         onChange={(e) => setName(e.target.value)}
         required
@@ -36,7 +36,7 @@ const JoinRoomForm = ({ socket, setUser }) => {
       <input
         type="text"
         className="form-control mb-3"
-        placeholder="Room code"
+        placeholder="Enter room code"
         value={roomId}
         onChange={(e) => setRoomId(e.target.value)}
         required

@@ -4,16 +4,7 @@ import rough from "roughjs";
 
 const roughGenerator = rough.generator();
 
-const WhiteBoard = ({
-  canvasRef,
-  ctxRef,
-  elements,
-  setElements,
-  tool,
-  color,
-  user,
-  socket,
-}) => {
+const WhiteBoard = ({ canvasRef, ctxRef, elements, setElements, tool, color, user, socket}) => {
   const [img, setImg] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -132,7 +123,6 @@ const WhiteBoard = ({
         ctx.restore();
       }
 
-
       else if(element.type === "circle"){
         const radius = Math.sqrt(
           Math.pow(element.width, 2) + Math.pow(element.height, 2)
@@ -152,7 +142,7 @@ const WhiteBoard = ({
       const { offsetX, offsetY, width, height } = element;
       const x1 = offsetX;
       const y1 = offsetY;
-      const x2 = offsetX + width;
+      const x2 = offsetX + width; 
       const y2 = offsetY + height;
       const x3 = offsetX - width;
       const y3 = offsetY + height;
@@ -160,22 +150,24 @@ const WhiteBoard = ({
       roughCanvas.draw(
         roughGenerator.polygon(
           [
-            [x1, y1],
-            [x2, y2],
-            [x3, y3],
+            [x1, y1], // Top side of triangle
+            [x2, y2], // Diagonal down right
+            [x3, y3], // Diagonal down left 
           ],
           opts
         )
       );
     }
       
-      else if (element.type === "pencil") {
-        roughCanvas.linearPath(element.path, opts);
-      } else if (element.type === "text") {
-        ctx.fillStyle = element.stroke;
-        ctx.font = "24px sans-serif";
-        ctx.fillText(element.text, element.offsetX, element.offsetY);
-      }
+    else if (element.type === "pencil") {
+      roughCanvas.linearPath(element.path, opts);
+    } 
+      
+    else if (element.type === "text") {
+      ctx.fillStyle = element.stroke;
+      ctx.font = "24px sans-serif";
+      ctx.fillText(element.text, element.offsetX, element.offsetY);
+    }
     });
 
     const canvasImage = canvas.toDataURL();

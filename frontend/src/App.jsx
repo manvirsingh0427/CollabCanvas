@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import io from "socket.io-client";
-
 import "./App.css";
-
 import Forms from "./components/Forms";
 import RoomPage from "./pages/RoomPage";
 
@@ -38,7 +36,6 @@ const App = () => {
 
     socket.on("userLeftMessageBroadcasted", (data) => {
       console.log(`${data.name} ${data.userId} left the room`);
-      //toast.info(`${data.name} left the room`);
     });
   }, []);
 
@@ -47,18 +44,7 @@ const App = () => {
       return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
     };
     return (
-      S4() +
-      S4() +
-      "-" +
-      S4() +
-      "-" +
-      S4() +
-      "-" +
-      S4() +
-      "-" +
-      S4() +
-      S4() +
-      S4()
+      S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4()
     );
   };
 

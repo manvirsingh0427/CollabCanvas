@@ -22,7 +22,7 @@ const Chat = ({ setOpenedChatTab, socket }) => {
   return (
     <div
       className="position-fixed top-0 h-100 text-white bg-dark"
-      style={{ width: "400px", left: "0%" }}
+      style={{ width: "400px", left: "0%", zIndex : 1050}}
     >
       <button
         type="button"
@@ -38,7 +38,7 @@ const Chat = ({ setOpenedChatTab, socket }) => {
         {chat.map((msg, index) => (
           <p
             key={index * 999}
-            className="my-2 text-center w-100 py-2 border border-left-0 border-right-0  "
+            className="my-2 text-center w-100 py-2 border border-left-0 border-right-0 rounded-1"
           >
             {msg.name}: {msg.message}
           </p>
@@ -47,8 +47,8 @@ const Chat = ({ setOpenedChatTab, socket }) => {
       <form onSubmit={handleSubmit} className="w-100 mt-4 d-flex rounded-3 ">
         <input
           type="text"
-          placeholder="Enter message"
-          className="h-100 border-0 rounded-0 py-2 px-4"
+          placeholder="Enter your message"
+          className="h-100 border-0 rounded-1 py-2 px-4"
           style={{
             width: "90%",
           }}
